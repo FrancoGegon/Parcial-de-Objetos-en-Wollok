@@ -1,0 +1,21 @@
+// Apellido y Nombre: Franco Gegon
+
+import parcial.*
+
+describe "Test para confirmar paquete de estrategia Navegante" {
+
+  const agente = new Agente (deuda = 100 , estrategia = estrategiaNavegante)
+  
+  test "Si las acciones buenas son menos 50 se vende un Paquete Bote " {
+    const almaMalita = new Alma (dineroAlMorir = 500, accionesBuenas = 25) 
+    agente.atenderAlma(almaMalita)
+    assert.equals(4 - (25 / 50), almaMalita.aniosDeViaje()) // se le restan los años del paquete Bote
+  }
+
+  test "Si las acciones buenas son 50 se elige el paquete Crucero" {
+    const almaBuenita = new Alma (dineroAlMorir = 500, accionesBuenas = 50) 
+    agente.atenderAlma(almaBuenita)
+    assert.equals(4 - ((50/50)*2), almaBuenita.aniosDeViaje()) // se le restan los años del paquete Crucero
+  }
+
+}
